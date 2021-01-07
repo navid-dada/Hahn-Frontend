@@ -201,12 +201,12 @@ module.exports = ({ production } = {}, {extractCss, analyze, tests, hmr, port, h
     rules: [
       // CSS required in JS/TS files should use the style-loader that auto-injects it into the website
       // only when the issuer is a .js/.ts file, so the loaders are not applied inside html templates
-      // { test: /.json$/i, loader: 'json-loader', type: 'javascript/auto' },
-      // {
-      //   test: /\.json$/,
-      //   loader: 'json', // I have also tried json-loader
-      //   include: ['/locales/en'],
-      // },
+      { test: /.json$/i, loader: 'json-loader', type: 'javascript/auto' },
+      {
+        test: /\.json$/,
+        loader: 'json', // I have also tried json-loader
+        include: ['/locales/en'],
+      },
       {
         test: /\.css$/i,
         issuer: [{ not: [{ test: /\.html$/i }] }],

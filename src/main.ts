@@ -1,3 +1,4 @@
+import { ApplicantValidationRenderer } from './ApplicantValidationRenderer';
 import {Aurelia} from 'aurelia-framework';
 import * as environment from '../config/environment.json';
 import {PLATFORM} from 'aurelia-pal';
@@ -31,6 +32,8 @@ export function configure(aurelia: Aurelia): void {
     });
   });
 
+  aurelia.use.plugin(PLATFORM.moduleName('aurelia-validation'))
+  aurelia.container.registerHandler("simple-renderer", container => container.get(ApplicantValidationRenderer));
   if (environment.testing) {
     aurelia.use.plugin(PLATFORM.moduleName('aurelia-testing'));
   }

@@ -1,4 +1,6 @@
+import { bindable } from 'aurelia-framework';
 export class Applicant{
+    @bindable
     public id : number; 
     public name : string; 
     public family : string; 
@@ -7,4 +9,6 @@ export class Applicant{
     public emailAddress : string; 
     public age :number; 
     public hired : boolean = false; 
+
+    
 }

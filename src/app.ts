@@ -1,12 +1,17 @@
+import { inject } from 'aurelia-dependency-injection';
+import { bindable } from 'aurelia-framework';
 import {Applicant} from "./applicant";
 import {HttpClient} from 'aurelia-http-client';
-export class App {
-
-  public data : Applicant = new Applicant();
-  public errors : string[] = ["navid", "berad", "reyahne"];
+import { ValidationController, ValidationRules } from "aurelia-validation";
+@inject(ValidationController)
+  export class App {
+  public errors : string[] ;//= ["navid", "berad", "reyahne"];
   httpClient : HttpClient ;
+  @bindable
+  public data : Applicant = new Applicant();
+  
 
-  constructor(i18n){
+  constructor(private validationController :ValidationController){
     this.httpClient = new HttpClient();
     
   }
@@ -17,10 +22,26 @@ export class App {
   }
 
   public submit() {
-    this.httpClient.post("https://localhost:5001/Applicant",this.data).then(
-      d => console.log(d.response)
-    );
+    this.validationController.validate().then(v=>
+      {
+          if (v.valid){
+            this.httpClient.post("https://localhost:5001/Applicant",this.data).then(
+              d => console.log(d.response)
+            );
+          }
+          else{
+            console.log(v.results)
+          }
+      });
+    /*
     this.httpClient.get("https://localhost:5001/Applicant")
-    .then(d => {console.log(d)});
+    .then(d => {console.log(d)});*/
+  }
+
+  public bind(){
+    ValidationRules.ensure("name").required()
+    .ensure("family").required()
+    .ensure("emailAddress").required().email()
+    .on(this.data);
   }
 }
