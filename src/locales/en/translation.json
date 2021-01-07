@@ -1,0 +1,13 @@
+{
+  "caption":{
+    "lbl_name":"Name", 
+    "lbl_family" : "Fmaily", 
+    "lbl_address":"Address",
+    "lbl_country_of_origin":"Country of origin",
+    "lbl_email":"Email address",
+    "lbl_age" : "Age",
+    "lbl_hired" : "Hired", 
+    "lbl_submit":"Submit", 
+    "lbl_reset" : "Reset"
+  }
+}

@@ -1,0 +1,62 @@
+<template>
+  <require from="assets/bootstrap/dist/css/bootstrap.min.css"></require>
+  <div class="container-fluid">
+      <div class = jumbotron>
+        <div class="row">
+        <div class="col-lg-3"></div>
+        <div class="col-lg-6">
+          <div class="row">
+          <div class="col-lg-4 col-sm-6">
+          <div class="mb-3">
+            <label for="txt-name" class="form-label"t="caption.lbl_name">Name</label>
+            <input type="text" tabindex="1" value.bind="data.name" class="form-control form-control-sm" id="txt-name" placeholder="name">
+          </div>
+          <div class="mb-3">
+            <label for="txt-country-of-origin" class="form-label" t="caption.lbl_country_of_origin">Country of origin</label>
+            <input type="text" value.bind="data.countryOfOrigin" tabindex="4" class="form-control form-control-sm" id="txt-country-of-origin" placeholder="country">
+          </div>
+
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="chk-hired">
+            <label class="form-check-label" checked.bind="data.hired"  tabindex="7" for="checkbox" t="caption.lbl_hired">
+              Hired
+            </label>
+          </div>
+          
+        </div>
+        <div class="col-lg-4 col-sm-6">
+          <div class="mb-3">
+            <label for="txt-family"  class="form-label" t="caption.lbl_family">Family</label>
+            <input type="text" tabindex="2" value.bind="data.family" class="form-control form-control-sm" id="txt-family" placeholder="family">
+          </div>
+          <div class="mb-3">
+            <label for="txt-email" class="form-label" t="caption.lbl_email">Email address</label>
+            <input type="email" tabindex="5" value.bind = "data.emailAddress" class="form-control form-control-sm" id="txt-email" placeholder="email@domain.com">
+          </div>
+        </div>
+          <div class="col-lg-4 col-sm-6">
+          <div class="mb-3">
+            <label for="txt-address" class="form-label" t="caption.lbl_address"></label>
+            <input type="Address" tabindex="3" value.bind="data.address" class="form-control form-control-sm" id="txt-address" placeholder="address">
+          </div>
+          <div class="mb-3">
+            <label for="txt-age" class="form-label" t="caption.lbl_age"></label>
+            <input type="number" value.bind="data.age" tabindex="6" class="form-control form-control-sm" id="txt-age" placeholder="age">
+          </div>
+          <button type="button" class="btn btn-success" click.trigger ="submit()" t="caption.lbl_submit">Ok</button>
+          <button type="button" class="btn btn-info" click.trigger ="reset()" t="caption.lbl_reset">Fresh</button>
+          </div>
+        </div>
+      </div>
+        <div class="col-lg-3">
+          <div show.bind="errors.length > 0">
+            <ul repeat.for="item of errors">
+                <li class="text-danger text-sm">${item}</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      </div>
+      
+  </div>
+</template>
