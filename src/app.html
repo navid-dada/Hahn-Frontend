@@ -14,7 +14,7 @@
           </div>
           <div class="form-group mb-3">
             <label for="txt-country-of-origin" class="form-label" t="caption.lbl_country_of_origin">Country of origin</label>
-            <input type="text" value.bind="data.countryOfOrigin" tabindex="4" class="form-control form-control-sm" id="txt-country-of-origin" placeholder="country">
+            <input type="text" value.bind="data.countryOfOrigin & validate" tabindex="4" class="form-control form-control-sm" id="txt-country-of-origin" placeholder="country">
           </div>
 
           <div class="form-group form-check">
@@ -38,11 +38,11 @@
           <div class="col-lg-4 col-sm-6">
           <div class=" form-group mb-3">
             <label for="txt-address" class="form-label" t="caption.lbl_address"></label>
-            <input type="Address" tabindex="3" value.bind="data.address" class="form-control form-control-sm" id="txt-address" placeholder="address">
+            <input type="Address" tabindex="3" value.bind="data.address & validate" class="form-control form-control-sm" id="txt-address" placeholder="address">
           </div>
           <div class="form-group mb-3">
             <label for="txt-age" class="form-label" t="caption.lbl_age"></label>
-            <input type="number" value.bind="data.age" tabindex="6" class="form-control form-control-sm" id="txt-age" placeholder="age">
+            <input type="number" value.bind="data.age & validate" tabindex="6" class="form-control form-control-sm" id="txt-age" placeholder="age">
           </div>
           <button type="button" class="btn btn-success" click.trigger ="submit()" t="caption.lbl_submit">Ok</button>
           <button type="button" class="btn btn-info" click.trigger ="reset()" t="caption.lbl_reset">Fresh</button>

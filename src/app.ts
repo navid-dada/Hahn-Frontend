@@ -39,8 +39,11 @@ import { ValidationController, ValidationRules } from "aurelia-validation";
   }
 
   public bind(){
-    ValidationRules.ensure("name").required()
-    .ensure("family").required()
+    ValidationRules.ensure("name").minLength(5).required()
+    .ensure("family").minLength(5).required()
+    .ensure("address").minLength(10).required()
+    .ensure("countryOfOrigin").required()
+    .ensure("age").required().between(19,61)
     .ensure("emailAddress").required().email()
     .on(this.data);
   }
