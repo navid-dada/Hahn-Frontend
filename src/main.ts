@@ -31,7 +31,10 @@ export function configure(aurelia: Aurelia): void {
       }
     });
   });
-
+  aurelia.use
+  .standardConfiguration()
+  .developmentLogging()
+  .plugin(PLATFORM.moduleName('aurelia-dialog'));
   aurelia.use.plugin(PLATFORM.moduleName('aurelia-validation'))
   aurelia.container.registerHandler("simple-renderer", container => container.get(ApplicantValidationRenderer));
   if (environment.testing) {
